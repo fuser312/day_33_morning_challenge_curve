@@ -13,12 +13,26 @@ class _AnimatedDotsState extends State<AnimatedDots> {
     return Container();
   }
 }
-class CustomCurve extends Curve{
-
-    @override
+class CustomCurve extends Curve {
+  @override
   double transformInternal(double t) {
-    // TODO: implement transform
-    return super.transform(t);
-  }
 
+    if (t >= 0 && t <= 0.2) {
+      return 0;
+    }
+    else if (t > 0.2 && t < 0.4) {
+      return Curves.ease.transform((t * 5) - 1);
+    }
+    else if (t == 0.4) {
+      return 1.0;
+
+    }
+    else if (t > 0.4 && t < 0.6) {
+      return Curves.decelerate.transform(t);
+    }
+
+    else if (t >= 0.6) {
+      return 0;
+    }
+  }
 }
