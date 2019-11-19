@@ -17,8 +17,8 @@ void main() {
   test("Testing Custom curve values", (){
     expect(CustomCurve().transformInternal(0), 0.0);
     expect(CustomCurve().transformInternal(0.2), 0.0);
-    expect(CustomCurve().transformInternal(0.3), Curves.ease.transformInternal(0.5));
+    expect(CustomCurve().transformInternal(0.3), Curves.ease.transform(0.5));
     expect(CustomCurve().transformInternal(0.4), 1.0);
-    expect(CustomCurve().transformInternal(0.5),  Curves.decelerate.transformInternal(0.5));
+    expect(CustomCurve().transformInternal(0.5),  Curves.decelerate.transform(0.5));
   });
 }
