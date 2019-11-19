@@ -28,7 +28,7 @@ class CustomCurve extends Curve {
 
     }
     else if (t > 0.4 && t < 0.6) {
-      return Curves.decelerate.transform(t);
+      return Curves.decelerate.transform(3 - (t * 5));
     }
 
     else if (t >= 0.6) {
