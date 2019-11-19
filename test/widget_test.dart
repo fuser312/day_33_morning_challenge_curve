@@ -15,10 +15,17 @@ void main() {
   //testing custom curve values
   //will add more test cases later.
   test("Testing Custom curve values", (){
-    expect(CustomCurve().transformInternal(0), 0.0);
-    expect(CustomCurve().transformInternal(0.2), 0.0);
-    expect(CustomCurve().transformInternal(0.3), Curves.ease.transform(0.5));
-    expect(CustomCurve().transformInternal(0.4), 1.0);
-    expect(CustomCurve().transformInternal(0.5),  Curves.decelerate.transform(0.5));
+    CustomCurve curve = CustomCurve();
+    expect(curve.transformInternal(0), 0.0);
+    expect(curve.transformInternal(0.1), 0.0);
+    expect(curve.transformInternal(0.2), 0.0);
+    expect(curve.transformInternal(0.3), Curves.ease.transform(0.5));
+    expect(curve.transformInternal(0.4), 1.0);
+    expect(curve.transformInternal(0.5),  Curves.decelerate.transform(0.5));
+    expect(curve.transformInternal(0.6), 0.0);
+    expect(curve.transformInternal(0.7), 0.0);
+    expect(curve.transformInternal(0.8), 0.0);
+    expect(curve.transformInternal(0.9), 0.0);
+    expect(curve.transformInternal(1.0), 0.0);
   });
 }
